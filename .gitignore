@@ -1,0 +1,12 @@
+.env
+accounts/
+data/
+logs/
+*.log
+*.png
+*.jpg
+__pycache__/
+*.pyc
+venv/
+.chrome-profile/
+node_modules/

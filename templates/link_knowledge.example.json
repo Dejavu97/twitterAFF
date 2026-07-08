@@ -1,0 +1,2046 @@
+{
+  "_comment": "Knowledge base: link + kategori + style variations. Auto-post kalau trigger match.",
+  "version": "1.2.0",
+  "updated_at": "2026-07-08",
+  "blocked_urls": [],
+  "categories": {
+    "kondom_premium": {
+      "category": "kondom",
+      "subcategory": "premium tipis aman",
+      "links": [
+        {
+          "url": "https://s.blibli.com/GNtk/q6wj1kvl",
+          "platform": "blibli",
+          "added_at": "2026-06-13",
+          "performance": {
+            "posted": 16,
+            "engagement": 0
+          },
+          "last_used": "2026-06-29T02:10:35.128881+00:00"
+        }
+      ],
+      "triggers": [
+        "kondom",
+        "kondom tipis",
+        "kondom enak",
+        "kondom rekomendasi",
+        "kondom nyaman",
+        "kondom aman",
+        "tipis tapi aman",
+        "kontrasepsi",
+        "ga gampang sobek",
+        "yang tipis",
+        "kondom yang",
+        "kondom branded",
+        "merk kondom",
+        "kondom impor",
+        "kondom lokal",
+        "kondom 3s",
+        "kondom isi 3",
+        "kondom pack",
+        "kondom box",
+        "kondom yg paling tipis",
+        "kondom ultra tipis",
+        "kondom super tipis",
+        "kondom popular",
+        "kondom laris",
+        "kondom best seller"
+      ],
+      "exclude_triggers": [
+        "kondom wanita",
+        "kondom pria",
+        "macam kondom",
+        "merk kondom",
+        "kemasan",
+        "packaging",
+        "reseller",
+        "grosir",
+        "merk",
+        "merek",
+        "bandingkan",
+        "vs"
+      ],
+      "context_signals": [
+        "rekomendasi",
+        "enak",
+        "tipis",
+        "nyaman",
+        "aman",
+        "ga sobek",
+        "review",
+        "best"
+      ],
+      "style_seeds": [
+        {
+          "id": "kondom_yoi_tp",
+          "template": "yoi bener, [RESPOND]. tp yg sering dilupain tuh [SENSORY_A] + [SENSORY_B], kalo [BAD_CASE] kan [NEGATIVE] juga. ini yg gue pake udh berbulan-bulan, [BENEFIT] + [BENEFIT2] bgt {link} 👇",
+          "fillers": {
+            "RESPOND": [
+              "tipis emang juara",
+              "kondom tipis emang beda feelnya",
+              "yg tipis emang paling dicari"
+            ],
+            "SENSORY_A": [
+              "lentur",
+              "elastis",
+              "tipis bgt",
+              "halus",
+              "food-grade"
+            ],
+            "SENSORY_B": [
+              "pas di badan",
+              "ringan",
+              "gak bikin sesak",
+              "gak gerah",
+              "berasa ga pake"
+            ],
+            "BAD_CASE": [
+              "kekecilan",
+              "asal pilih",
+              "yg murahan",
+              "asal tebel"
+            ],
+            "NEGATIVE": [
+              "risih",
+              "tidak nyaman",
+              "gak enjoy",
+              "malah bikin ga mood"
+            ],
+            "BENEFIT": [
+              "aman",
+              "gampang sobek? no",
+              "tetep safety",
+              "tetep nyaman"
+            ],
+            "BENEFIT2": [
+              "ringan",
+              "halus",
+              "awet",
+              "lentur"
+            ]
+          },
+          "used_count": 6,
+          "last_used": "2026-06-29T02:10:35.128838+00:00"
+        },
+        {
+          "id": "kondom_suka_lupa",
+          "template": "iih relate bgt. sering yg dilupain tuh [ASPECT], padahal kalo [BAD] malah [NEGATIVE]. gue sempet salah pilih juga, skrg stuck ke yg ini udh [DURATION], [BENEFIT] bgt {link} 👇",
+          "fillers": {
+            "ASPECT": [
+              "yg lentur + pas di badan",
+              "ukuran pas",
+              "bahan food-grade",
+              "yg certified"
+            ],
+            "BAD": [
+              "asal murah",
+              "asal beli",
+              "asal tebel",
+              "asal tipis doang"
+            ],
+            "NEGATIVE": [
+              "jadi ga nyaman",
+              "gampang sobek",
+              "bikin risih",
+              "engga mood"
+            ],
+            "DURATION": [
+              "3 bulanan",
+              "hampir 6 bulan",
+              "berapa bulan",
+              "lama bgt"
+            ],
+            "BENEFIT": [
+              "lentur + ringan",
+              "awet + aman",
+              "halus",
+              "pas di badan"
+            ]
+          },
+          "used_count": 5,
+          "last_used": "2026-06-17T14:09:08.779802+00:00"
+        },
+        {
+          "id": "kondom_wajib_tau",
+          "template": "wajib tau ini klo lagi cari [ITEM]. yg [POSITIVE] emang enak, tp yg [NEGATIVE] itu lock — kalo cuma [BAD] doang kan [NEGATIVE_OUTCOME]. ini gue rekomendasi, udh [DURATION] gue pake {link} 👇",
+          "fillers": {
+            "ITEM": [
+              "kondom",
+              "kontrasepsi",
+              "yg tipis"
+            ],
+            "POSITIVE": [
+              "tipis",
+              "halus",
+              "lentur"
+            ],
+            "NEGATIVE": [
+              "lentur + aman",
+              "awet + certified",
+              "food-grade",
+              "ga gampang sobek"
+            ],
+            "BAD": [
+              "tipis",
+              "murah"
+            ],
+            "NEGATIVE_OUTCOME": [
+              "gampang sobek",
+              "ga safety",
+              "bikin ga nyaman"
+            ],
+            "DURATION": [
+              "3 bulan",
+              "6 bulan",
+              "1 taun",
+              "lama"
+            ]
+          },
+          "used_count": 5,
+          "last_used": "2026-06-18T20:10:46.706795+00:00"
+        },
+        {
+          "id": "kondom_curhat",
+          "template": "ngomong-ngomong soal [ITEM], gue pernah coba [BAD_BRAND] — [BAD_EXP]. skrg pindah ke yg ini, [BENEFIT] bgt, ga nyesel {link} 👇",
+          "fillers": {
+            "ITEM": [
+              "kondom yg tipis",
+              "kondom rekomendasi",
+              "kontrasepsi"
+            ],
+            "BAD_BRAND": [
+              "merk X",
+              "yg populer di Indo",
+              "yg murah",
+              "yg gampang ditemuin"
+            ],
+            "BAD_EXP": [
+              "gampang sobek",
+              "kekecilan",
+              "agak tebel",
+              "bau kimianya kuat"
+            ],
+            "BENEFIT": [
+              "lentur + aman",
+              "tipis bgt tp ga sobek",
+              "halus + ringan",
+              "awet bgt"
+            ]
+          },
+          "used_count": 5,
+          "last_used": "2026-06-23T14:08:04.811359+00:00"
+        }
+      ],
+      "auto_mode": true,
+      "daily_limit_per_category": 2,
+      "cooldown_minutes": 120,
+      "max_per_session": 1,
+      "notes": "Premium kondom positioning. Soft-sensory: lentur, halus, ringan, awet. NO kata 'nikmat', 'puas', 'enak' sebagai sexual connotation (pake 'enak' hanya untuk 'tipis/enak dipakai')",
+      "priority": 2
+    },
+    "lingerie_adem_awet": {
+      "category": "lingerie",
+      "subcategory": "bahannya adem + awet",
+      "links": [
+        {
+          "url": "https://s.blibli.com/GNtk/kcbikfvt",
+          "platform": "blibli",
+          "added_at": "2026-06-13",
+          "performance": {
+            "posted": 18,
+            "engagement": 0
+          },
+          "last_used": "2026-07-05T14:10:13.861757+00:00"
+        }
+      ],
+      "triggers": [
+        "lingerie",
+        "rekomendasi lingerie",
+        "cd",
+        "celana dalam",
+        "dalam wanita",
+        "pembalut",
+        "kutang",
+        "pakaian dalam",
+        "lingerie wanita",
+        "lingerie cantik",
+        "lingerie adem",
+        "lingerie murah",
+        "pakaian dalam wanita",
+        "pakaian dalam adem",
+        "pakaian dalam cantik",
+        "cd sexy",
+        "cd adem",
+        "celana dalam sexy",
+        "celana dalam wanita",
+        "BH adem",
+        "BH cantik",
+        "BH murah",
+        "BH branded",
+        "bra branded",
+        "bra cantik",
+        "bra adem",
+        "bra murah",
+        "underwear wanita",
+        "underwear branded"
+      ],
+      "exclude_triggers": [
+        "lingerie pria",
+        "lomba lingerie",
+        "outfit lingerie",
+        "fashion show",
+        "runway",
+        "magazine",
+        "model",
+        "photoshoot",
+        "photoshoot model",
+        "vogue",
+        "outfit of the day",
+        "ootd",
+        "fashion week"
+      ],
+      "context_signals": [
+        "rekomendasi",
+        "adem",
+        "nyaman",
+        "awet",
+        "bahan",
+        "sejuk",
+        "gak panas",
+        "curvy",
+        "ukuran",
+        "size"
+      ],
+      "style_seeds": [
+        {
+          "id": "lingerie_uk_awal",
+          "template": "iih relate. [RESPOND] tuh paling penting. gue sempet asal pilih yg murah, [BAD_EXP]. skrg ke yg ini, [BENEFIT] bgt {link} 👇",
+          "fillers": {
+            "RESPOND": [
+              "size yg fit",
+              "yg bahannya adem",
+              "yg gak gatel"
+            ],
+            "BAD_EXP": [
+              "2 minggu mulet",
+              "warna luntur",
+              "bahan panas",
+              "elastis copot"
+            ],
+            "BENEFIT": [
+              "awet + adem",
+              "halus bgt",
+              "size lengkap",
+              "gak gatel"
+            ]
+          },
+          "used_count": 10,
+          "last_used": "2026-07-03T14:10:12.309929+00:00"
+        },
+        {
+          "id": "lingerie_penting",
+          "template": "[GREET] yg penting tuh [ASPECT] + [ASPECT2], soalnya kalo asal murah kan [NEGATIVE]. ini gue pake udh [DURATION], [BENEFIT] bgt {link} 👇",
+          "fillers": {
+            "GREET": [
+              "yoi bener",
+              "setuju bgt",
+              "sih relate",
+              "wkwk iya"
+            ],
+            "ASPECT": [
+              "size fit",
+              "bahan adem",
+              "bahan halus",
+              "elastis bagus"
+            ],
+            "ASPECT2": [
+              "jahitan rapi",
+              "gak gatel",
+              "warna awet",
+              "gak luntur"
+            ],
+            "NEGATIVE": [
+              "mulet cepet",
+              "gatel",
+              "bikin gerah",
+              "warna luntur"
+            ],
+            "DURATION": [
+              "6 bulan",
+              "ampir taun",
+              "lama bgt",
+              "3 bulanan"
+            ],
+            "BENEFIT": [
+              "tetep adem",
+              "tetep awet",
+              "gak berubah warna",
+              "gak gatel"
+            ]
+          },
+          "used_count": 10,
+          "last_used": "2026-07-05T08:10:12.227533+00:00"
+        },
+        {
+          "id": "lingerie_curvy",
+          "template": "sih relate bgt yg nyari [ASPECT]. gue sempet struggle cari yg size pas buat [BODY], kebanyakan kekecilan/maksa. ini yg [BENEFIT], ada size lengkap jadi gak drama {link} 👇",
+          "fillers": {
+            "ASPECT": [
+              "size jumbo",
+              "size plus",
+              "size besar",
+              "yg fit buat curvy"
+            ],
+            "BODY": [
+              "badan yg lebar",
+              "yg pinggul besar",
+              "yg size M ke atas",
+              "yg postur besar"
+            ],
+            "BENEFIT": [
+              "size-nya lengkap",
+              "bahannya adem bgt",
+              "elastis tp gak melar",
+              "gak panas"
+            ]
+          },
+          "used_count": 10,
+          "last_used": "2026-07-05T14:10:13.861665+00:00"
+        }
+      ],
+      "auto_mode": true,
+      "daily_limit_per_category": 2,
+      "cooldown_minutes": 120,
+      "max_per_session": 1,
+      "notes": "Lingerie angle: comfort + awet. Curvy-friendly call-out works well. NO sexy/promosi seksual — keep 'pakaian dalam nyaman' framing.",
+      "priority": 1
+    },
+    "mini_dress_sexy": {
+      "category": "pakaian",
+      "subcategory": "mini dress sexy / sexy dress",
+      "links": [
+        {
+          "url": "https://s.shopee.co.id/4VaRIUe9z3",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 1,
+            "engagement": 0
+          },
+          "last_used": "2026-06-26T15:17:24.681788+00:00"
+        },
+        {
+          "url": "https://s.shopee.co.id/2g8n7cWlEt",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 0,
+            "engagement": 0
+          }
+        },
+        {
+          "url": "https://s.shopee.co.id/2VpMvL6Sri",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 0,
+            "engagement": 0
+          }
+        },
+        {
+          "url": "https://s.shopee.co.id/8pjQTAHVXH",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 0,
+            "engagement": 0
+          }
+        },
+        {
+          "url": "https://s.shopee.co.id/70HmHpsL7q",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 0,
+            "engagement": 0
+          }
+        },
+        {
+          "url": "https://s.shopee.co.id/9KfT31LKrT",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 1,
+            "engagement": 0
+          },
+          "last_used": "2026-06-26T14:10:28.219433+00:00"
+        },
+        {
+          "url": "https://s.shopee.co.id/8ATVf2Km70",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 0,
+            "engagement": 0
+          }
+        },
+        {
+          "url": "https://s.shopee.co.id/9KfT3ENIpH",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 0,
+            "engagement": 0
+          }
+        },
+        {
+          "url": "https://s.shopee.co.id/7fXF4LykGx",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 0,
+            "engagement": 0
+          }
+        }
+      ],
+      "triggers": [
+        "mini dress",
+        "minidress",
+        "mini-dress",
+        "sexy dress",
+        "dress sexy",
+        "dress seksi",
+        "dress wanita",
+        "dress pendek",
+        "dress pesta",
+        "sexy outfit",
+        "outfit seksi",
+        "outfit sexy",
+        "dress hitam",
+        "dress putih",
+        "dress merah",
+        "rekomendasi dress",
+        "dress murah",
+        "dress branded"
+      ],
+      "exclude_triggers": [
+        "dress code",
+        "dress code kantor",
+        "office dress",
+        "kantor dress",
+        "kantor",
+        "office",
+        "formal",
+        "wedding"
+      ],
+      "context_signals": [
+        "rekomendasi",
+        "enak",
+        "nyaman",
+        "murah",
+        "best",
+        "review",
+        "bahannya adem",
+        "fit",
+        "kekinian",
+        "trendy"
+      ],
+      "style_seeds": [
+        {
+          "id": "minidress_relate",
+          "template": "yoi relate, dress sexy tuh tricky carinya — [RESPOND]. yg sering dilupain tuh [SENSORY_A] + [SENSORY_B], kalo [BAD_CASE] kan [NEGATIVE] juga. ini ada beberapa yg udh gue cek, [BENEFIT] + [BENEFIT2] bgt {link} 👇",
+          "fillers": {
+            "RESPOND": [
+              "mini dress emang piece wajib",
+              "sexy dress itu statement",
+              "yg simple tapi tetep standout emang juara",
+              "outfit simple tapi bikin pede"
+            ],
+            "SENSORY_A": [
+              "bahannya adem",
+              "lembut",
+              "jatohnya bagus",
+              "fit di badan",
+              "gak nerawang",
+              "halus"
+            ],
+            "SENSORY_B": [
+              "gak gampang kusut",
+              "nyaman dipake lama",
+              "warna gak luntur",
+              "adems",
+              "ringan"
+            ],
+            "BAD_CASE": [
+              "asal murah",
+              "yg kekecilan",
+              "asal beli",
+              "bahan murahan",
+              "size asal"
+            ],
+            "NEGATIVE": [
+              "risih",
+              "tidak nyaman",
+              "gak pede",
+              "malah bikin ga mood",
+              "malu sendiri"
+            ],
+            "BENEFIT": [
+              "aman",
+              "bahannya oke",
+              "fit-nya pas",
+              "tetep sopan tp seksi",
+              "gak vulgar"
+            ],
+            "BENEFIT2": [
+              "murah",
+              "worth it",
+              "kekinian",
+              "lengkap size-nya",
+              "ready stock"
+            ]
+          },
+          "used_count": 1,
+          "last_used": "2026-06-26T14:10:28.219384+00:00"
+        }
+      ],
+      "auto_mode": true,
+      "daily_limit_per_category": 2,
+      "cooldown_minutes": 120,
+      "max_per_session": 1,
+      "notes": "Mini dress / sexy dress. Banyak pilihan size & warna. Brand_affordable. NO vulgar framing — keep 'outfit kekinian' angle.",
+      "priority": 2
+    },
+    "baju_tidur_sexy": {
+      "category": "pakaian",
+      "subcategory": "baju tidur /睡衣 sexy",
+      "links": [
+        {
+          "url": "https://s.shopee.co.id/6VLVgdsJKY",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 3,
+            "engagement": 0
+          },
+          "last_used": "2026-07-06T19:31:15.951518+00:00"
+        },
+        {
+          "url": "https://s.shopee.co.id/AUreS6E7Si",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 3,
+            "engagement": 0
+          },
+          "last_used": "2026-07-07T20:10:34.934964+00:00"
+        },
+        {
+          "url": "https://s.shopee.co.id/6py84hVCht",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 3,
+            "engagement": 0
+          },
+          "last_used": "2026-07-08T01:31:00.398424+00:00"
+        },
+        {
+          "url": "https://s.shopee.co.id/4LH1kA2wll",
+          "title": "Piyama Set 1",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 3,
+            "engagement": 0
+          },
+          "last_used": "2026-07-07T20:10:48.963682+00:00"
+        },
+        {
+          "url": "https://s.shopee.co.id/6L267sjbT1",
+          "title": "Piyama Set 2",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 3,
+            "engagement": 0
+          },
+          "last_used": "2026-07-07T14:09:58.777986+00:00"
+        },
+        {
+          "url": "https://s.shopee.co.id/9AMHV9tc0o",
+          "title": "Piyama Set 3",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 3,
+            "engagement": 0
+          },
+          "last_used": "2026-07-07T20:10:19.604146+00:00"
+        }
+      ],
+      "triggers": [
+        "baju tidur",
+        "baju tidur sexy",
+        "baju tidur seksi",
+        "pajama",
+        "pajama sexy",
+        "pajama seksi",
+        "daster",
+        "daster sexy",
+        "daster seksi",
+        "night gown",
+        "nightgown",
+        "nightie",
+        "睡衣",
+        "piyama wanita",
+        "piyama seksi",
+        "sleepwear",
+        "sleepwear sexy",
+        "sleepwear wanita"
+      ],
+      "exclude_triggers": [
+        "baju tidur anak",
+        "baju tidur bayi",
+        "pajama anak",
+        "outfit",
+        "fashion",
+        "model",
+        "runway",
+        "magazine"
+      ],
+      "context_signals": [
+        "rekomendasi",
+        "enak",
+        "nyaman",
+        "adem",
+        "sexy",
+        "seksi",
+        "murah",
+        "review",
+        "best",
+        "halus"
+      ],
+      "style_seeds": [
+        {
+          "id": "bajutidur_relate",
+          "template": "yoi bener, baju tidur tuh [RESPOND]. yg sering dilupain tuh [SENSORY_A] + [SENSORY_B], kalo [BAD_CASE] kan [NEGATIVE] juga. ini ada beberapa yg udh gue rekomendasi, [BENEFIT] + [BENEFIT2] bgt {link} 👇",
+          "fillers": {
+            "RESPOND": [
+              "yg comfy emang juara",
+              "yg adem tuh paling penting",
+              "yg simple tapi seksi"
+            ],
+            "SENSORY_A": [
+              "bahannya jatuh",
+              "sutra halus",
+              "saten adem",
+              "katun adem",
+              "halus bgt"
+            ],
+            "SENSORY_B": [
+              "adem dipake malem",
+              "gak gerah",
+              "gak mudah kusut",
+              "jatohnya bagus"
+            ],
+            "BAD_CASE": [
+              "asal murah",
+              "yg gerah",
+              "bahan tebel",
+              "kekecilan",
+              "bahan murahan"
+            ],
+            "NEGATIVE": [
+              "risih",
+              "gerah",
+              "gak nyaman",
+              "tidur malah gelisah",
+              "kepanasan"
+            ],
+            "BENEFIT": [
+              "adem",
+              "halus",
+              "nyaman",
+              "tetep sopan tp seksi"
+            ],
+            "BENEFIT2": [
+              "murah",
+              "lengkap size",
+              "ready warna",
+              "worth it"
+            ]
+          },
+          "used_count": 18,
+          "last_used": "2026-07-08T01:31:00.398379+00:00"
+        }
+      ],
+      "auto_mode": true,
+      "daily_limit_per_category": 2,
+      "cooldown_minutes": 120,
+      "max_per_session": 1,
+      "notes": "Baju tidur / sleepwear / pajama. NO vulgar framing — keep 'comfort + aesthetic' angle.",
+      "priority": 2
+    },
+    "bikini_bra": {
+      "category": "pakaian_dalam",
+      "subcategory": "bikini / bra wanita",
+      "links": [
+        {
+          "url": "https://s.shopee.co.id/8V6a4VCQVG",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 5,
+            "engagement": 0
+          },
+          "last_used": "2026-07-04T02:10:27.644916+00:00"
+        },
+        {
+          "url": "https://s.shopee.co.id/40dwhYAOwj",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 5,
+            "engagement": 0
+          },
+          "last_used": "2026-07-06T03:17:25.181867+00:00"
+        },
+        {
+          "url": "https://s.shopee.co.id/W44XIG3Eb",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 5,
+            "engagement": 0
+          },
+          "last_used": "2026-07-05T04:01:01.469874+00:00"
+        },
+        {
+          "url": "https://s.shopee.co.id/40dwhkItHO",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 5,
+            "engagement": 0
+          },
+          "last_used": "2026-07-05T15:19:02.110978+00:00"
+        },
+        {
+          "url": "https://s.shopee.co.id/AAEa37Oa0f",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 6,
+            "engagement": 0
+          },
+          "last_used": "2026-07-07T20:10:42.318534+00:00"
+        },
+        {
+          "url": "https://s.shopee.co.id/qguw1etdd",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 6,
+            "engagement": 0
+          },
+          "last_used": "2026-07-08T02:10:18.048703+00:00"
+        },
+        {
+          "url": "https://s.shopee.co.id/40eBLhLLF9",
+          "title": "Swimsuit 1",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 5,
+            "engagement": 0
+          },
+          "last_used": "2026-07-05T09:17:45.862621+00:00"
+        },
+        {
+          "url": "https://s.shopee.co.id/6Aifvj2jpU",
+          "title": "Swimsuit 2",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 6,
+            "engagement": 0
+          },
+          "last_used": "2026-07-06T14:10:36.982584+00:00"
+        },
+        {
+          "url": "https://s.shopee.co.id/W4JBL6FQ7",
+          "title": "Swimsuit 3",
+          "platform": "shopee",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 6,
+            "engagement": 0
+          },
+          "last_used": "2026-07-07T20:10:27.207273+00:00"
+        }
+      ],
+      "triggers": [
+        "bikini",
+        "bikini wanita",
+        "bikini seksi",
+        "bikini sexy",
+        "bikini set",
+        "bra",
+        "bra wanita",
+        "bra sexy",
+        "bra seksi",
+        "bra push up",
+        "BH",
+        "BH sexy",
+        "BH seksi",
+        "BH push up",
+        "BH wanita",
+        "kutang",
+        "kutang seksi",
+        "kutang sexy",
+        "two piece",
+        "two-piece",
+        "set bikini",
+        "renang wanita",
+        "baju renang",
+        "baju renang wanita",
+        "swimsuit",
+        "swimsuit wanita",
+        "swimwear"
+      ],
+      "exclude_triggers": [
+        "bikini pria",
+        "baju renang anak",
+        "renang bayi",
+        "renang anak",
+        "pantai",
+        "summer",
+        "liburan",
+        "vacation",
+        "holiday",
+        "bali",
+        "lombok",
+        "phuket",
+        "bikinian",
+        "swimwear model",
+        "fashion show",
+        "runway",
+        "model",
+        "magazine",
+        "photoshoot",
+        "beach",
+        "selebgram",
+        "olshop fashion"
+      ],
+      "context_signals": [
+        "rekomendasi",
+        "enak",
+        "nyaman",
+        "seksi",
+        "sexy",
+        "murah",
+        "best",
+        "review",
+        "fit",
+        "size lengkap"
+      ],
+      "style_seeds": [
+        {
+          "id": "bikini_bra_relate",
+          "template": "yoi relate, bra/bikini tuh [RESPOND]. yg sering dilupain tuh [SENSORY_A] + [SENSORY_B], kalo [BAD_CASE] kan [NEGATIVE] juga. ini ada koleksi yg [BENEFIT] + [BENEFIT2] bgt, udh gue filter {link} 👇",
+          "fillers": {
+            "RESPOND": [
+              "fit-nya emang point utama",
+              "yg支撑 bagus tuh dicari",
+              "yg push up natural emang beda",
+              "comfort + support"
+            ],
+            "SENSORY_A": [
+              "bahannya breathable",
+              "supporting bgt",
+              "fit di badan",
+              "gak ngepres",
+              "halus"
+            ],
+            "SENSORY_B": [
+              "gak bikin punggung sakit",
+              "gak gampang melar",
+              "warna gak luntur",
+              "size lengkap"
+            ],
+            "BAD_CASE": [
+              "asal murah",
+              "yg支撑 jelek",
+              "kekecilan",
+              "asal pilih size"
+            ],
+            "NEGATIVE": [
+              "risih",
+              "gak nyaman",
+              "back pain",
+              "gak pede",
+              "malu"
+            ],
+            "BENEFIT": [
+              "fit",
+              "supporting",
+              "sexy tp tetep sopan",
+              "push up natural"
+            ],
+            "BENEFIT2": [
+              "murah",
+              "size lengkap",
+              "ready stock",
+              "warna variatif"
+            ]
+          },
+          "used_count": 47,
+          "last_used": "2026-07-08T02:10:18.048596+00:00"
+        }
+      ],
+      "auto_mode": true,
+      "daily_limit_per_category": 2,
+      "cooldown_minutes": 120,
+      "max_per_session": 1,
+      "notes": "Bikini / bra / BH wanita. NO vulgar framing — 'fit + support' angle. Excludes children's swimwear.",
+      "priority": 2
+    },
+    "pelumas_lubricant": {
+      "category": "wellness",
+      "subcategory": "pelumas / lubricant",
+      "links": [
+        {
+          "url": "https://s.blibli.com/GNtk/44vfkau1",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 2,
+            "engagement": 0
+          },
+          "last_used": "2026-06-17T21:16:36.579785+00:00"
+        },
+        {
+          "url": "https://s.blibli.com/GNtk/ne9fh9iw",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 2,
+            "engagement": 0
+          },
+          "last_used": "2026-06-17T16:31:47.395018+00:00"
+        },
+        {
+          "url": "https://s.blibli.com/GNtk/ysv7fzq1",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 2,
+            "engagement": 0
+          },
+          "last_used": "2026-07-04T03:17:05.427097+00:00"
+        },
+        {
+          "url": "https://s.blibli.com/GNtk/p0mqog7y",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 2,
+            "engagement": 0
+          },
+          "last_used": "2026-06-30T14:10:41.861291+00:00"
+        },
+        {
+          "url": "https://s.blibli.com/GNtk/uklobkd0",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 2,
+            "engagement": 0
+          },
+          "last_used": "2026-06-17T23:15:47.842960+00:00"
+        },
+        {
+          "url": "https://s.blibli.com/GNtk/1gpmqzc1",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 1,
+            "engagement": 0
+          },
+          "last_used": "2026-06-17T08:08:45.949405+00:00"
+        }
+      ],
+      "triggers": [
+        "pelumas",
+        "pelumas wanita",
+        "pelumas sex",
+        "pelumas intim",
+        "lubricant",
+        "lubricant wanita",
+        "lubricant sex",
+        "intimate lubricant",
+        "pelumas untuk pemula",
+        "pelumas water based",
+        "pelumas silicone",
+        "pelumas vagina",
+        "pelumas murah",
+        "merk pelumas",
+        "rekomendasi pelumas",
+        "pelumas yang aman",
+        "pelumas food grade"
+      ],
+      "exclude_triggers": [
+        "pelumas mesin",
+        "pelumas mobil",
+        "pelumas motor",
+        "pelumas industri",
+        "treadmill",
+        "mesin",
+        "oli",
+        "grease",
+        "gemuk",
+        "motor",
+        "mobil",
+        "otomotif",
+        "dapur",
+        "masak",
+        "medis",
+        "alat medis",
+        "fda",
+        "industri",
+        "pabrik",
+        "service",
+        "bengkel",
+        "kendaraan",
+        "mebel",
+        "kompresor",
+        "pompa",
+        "rantai",
+        "gear",
+        "bearing",
+        "mesin cuci"
+      ],
+      "context_signals": [
+        "rekomendasi",
+        "pemula",
+        "pertama kali",
+        "aman",
+        "food grade",
+        "water based",
+        "pH balanced",
+        "gak lengket",
+        "best"
+      ],
+      "style_seeds": [
+        {
+          "id": "pelumas_pemula",
+          "template": "yoi relate, pelumas emang [RESPOND] buat pemula. yg sering dilupain tuh [SENSORY_A] + [SENSORY_B], kalo [BAD_CASE] kan [NEGATIVE] juga. ini ada beberapa yg [BENEFIT] + [BENEFIT2], udh certified {link} 💧",
+          "fillers": {
+            "RESPOND": [
+              "yg penting tuh ingredients-nya",
+              "water based emang paling aman",
+              "yg food grade tuh dicari",
+              "yg pH balanced"
+            ],
+            "SENSORY_A": [
+              "water based",
+              "pH balanced",
+              "food grade ingredients",
+              "no fragrance",
+              "no paraben"
+            ],
+            "SENSORY_B": [
+              "gak lengket",
+              "gak lengket di kulit",
+              "bersih gampang",
+              "gak ninggalin residu",
+              "aman buat kondom"
+            ],
+            "BAD_CASE": [
+              "asal murah",
+              "ingredients random",
+              "yg oil based sembarangan",
+              "yg ada fragrance"
+            ],
+            "NEGATIVE": [
+              "iritasi",
+              "gak nyaman",
+              "alergi",
+              "infeksi",
+              "gak food grade"
+            ],
+            "BENEFIT": [
+              "aman",
+              "food grade",
+              "pH balanced",
+              "water based"
+            ],
+            "BENEFIT2": [
+              "murah",
+              "banyak size",
+              "ready stock",
+              "halal certified"
+            ]
+          },
+          "used_count": 19,
+          "last_used": "2026-07-04T03:17:05.427063+00:00"
+        }
+      ],
+      "auto_mode": true,
+      "daily_limit_per_category": 2,
+      "cooldown_minutes": 120,
+      "max_per_session": 1,
+      "notes": "Pelumas / lubricant. Excludes 'mesin/mobil/industri'. Framed as 'intimate wellness product', not 'sex'.",
+      "priority": 2
+    },
+    "dildo": {
+      "category": "wellness",
+      "subcategory": "dildo / sex toy",
+      "links": [
+        {
+          "url": "https://s.blibli.com/GNtk/wfr5wyhg",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 14,
+            "engagement": 0
+          },
+          "last_used": "2026-07-07T20:10:55.040991+00:00"
+        },
+        {
+          "url": "https://s.blibli.com/GNtk/7cf9ki96",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 14,
+            "engagement": 0
+          },
+          "last_used": "2026-07-07T02:09:09.596160+00:00"
+        }
+      ],
+      "triggers": [
+        "dildo",
+        "dildo wanita",
+        "dildo pemula",
+        "dildo sex",
+        "sex toy",
+        "sex toys",
+        "mainan dewasa",
+        "mainan sex",
+        "mainan wanita",
+        "mainan intim",
+        "mainan pasangan",
+        "dildo rekomendasi",
+        "dildo yang aman",
+        "dildo food grade",
+        "dildo硅胶",
+        "silikon dildo",
+        "dildo silicone",
+        "mainan dewasa untuk pemula",
+        "sex toys untuk pemula"
+      ],
+      "exclude_triggers": [
+        "dildo prank",
+        "dildo lucu",
+        "novelty dildo",
+        "joke",
+        "lelucon",
+        "gift",
+        "hadiah",
+        "prank",
+        "novelty",
+        "puzzle",
+        "mainan anak",
+        "toy anak",
+        "mainan sex anak",
+        "sex toy anak",
+        "mainan bayi"
+      ],
+      "context_signals": [
+        "rekomendasi",
+        "pemula",
+        "pertama kali",
+        "aman",
+        "food grade",
+        "silicon",
+        "murah",
+        "best",
+        "review",
+        "size"
+      ],
+      "style_seeds": [
+        {
+          "id": "dildo_pemula",
+          "template": "yoi relate, sex toys tuh [RESPOND] buat pemula. yg sering dilupain tuh [SENSORY_A] + [SENSORY_B], kalo [BAD_CASE] kan [NEGATIVE] juga. ini ada beberapa yg [BENEFIT] + [BENEFIT2], certified aman {link} 🔒",
+          "fillers": {
+            "RESPOND": [
+              "yg penting tuh material-nya",
+              "food grade silicon emang juara",
+              "yg body-safe tuh dicari",
+              "yg gampang dibersihin"
+            ],
+            "SENSORY_A": [
+              "100% silicone",
+              "food grade",
+              "body-safe",
+              "hypoallergenic",
+              "no porous"
+            ],
+            "SENSORY_B": [
+              "gak ngeboros pori",
+              "gak nyerap bakteri",
+              "gampang di-sterilize",
+              "awet sampe tahunan"
+            ],
+            "BAD_CASE": [
+              "asal murah",
+              "material random",
+              "TPR/Jelly sembarangan",
+              "yg porous"
+            ],
+            "NEGATIVE": [
+              "iritasi",
+              "gak higienis",
+              "alergi",
+              "gak food grade",
+              "bakteri numpuk"
+            ],
+            "BENEFIT": [
+              "body-safe",
+              "food grade",
+              "100% silicone",
+              "easy clean"
+            ],
+            "BENEFIT2": [
+              "murah",
+              "size lengkap",
+              "discrete packaging",
+              "awet"
+            ]
+          },
+          "used_count": 26,
+          "last_used": "2026-07-07T20:10:55.040954+00:00"
+        }
+      ],
+      "auto_mode": true,
+      "daily_limit_per_category": 2,
+      "cooldown_minutes": 120,
+      "max_per_session": 1,
+      "notes": "Dildo / sex toys. WAJIB frame sebagai 'body-safe intimate product' / wellness. NO vulgar language. Exclude novelty/joke products.",
+      "priority": 2
+    },
+    "vibrator": {
+      "category": "wellness",
+      "subcategory": "vibrator",
+      "links": [
+        {
+          "url": "https://s.blibli.com/GNtk/ruvjp1jg",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 10,
+            "engagement": 0
+          },
+          "last_used": "2026-07-02T22:33:12.368911+00:00"
+        },
+        {
+          "url": "https://s.blibli.com/GNtk/hfzw5bki",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 8,
+            "engagement": 0
+          },
+          "last_used": "2026-07-04T14:10:18.423818+00:00"
+        },
+        {
+          "url": "https://s.blibli.com/GNtk/an1eyts1",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 9,
+            "engagement": 0
+          },
+          "last_used": "2026-07-06T09:17:07.154595+00:00"
+        },
+        {
+          "url": "https://s.blibli.com/GNtk/lsmf527g",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 8,
+            "engagement": 0
+          },
+          "last_used": "2026-07-02T20:10:22.330129+00:00"
+        }
+      ],
+      "triggers": [
+        "vibrator",
+        "vibrator wanita",
+        "vibrator pemula",
+        "vibrator sex",
+        "vibrator rekomendasi",
+        "vibrator yang aman",
+        "vibrator food grade",
+        "vibrator硅胶",
+        "silikon vibrator",
+        "vibrator silicone",
+        "rabbit vibrator",
+        "rechargeable vibrator",
+        "vibrator isi ulang",
+        "vibrator USB"
+      ],
+      "exclude_triggers": [
+        "vibrator hp",
+        "vibrator massage",
+        "massage vibrator",
+        "face massager",
+        "hp",
+        "phone",
+        "smartphone",
+        "massage",
+        "face",
+        "body",
+        "pijat",
+        "pijat wajah",
+        "mainan sex anak",
+        "mainan anak",
+        "sex toy anak",
+        "phone vibrator"
+      ],
+      "context_signals": [
+        "rekomendasi",
+        "pemula",
+        "pertama kali",
+        "aman",
+        "food grade",
+        "silent",
+        "discrete",
+        "murah",
+        "best",
+        "review",
+        "size"
+      ],
+      "style_seeds": [
+        {
+          "id": "vibrator_pemula",
+          "template": "yoi relate, vibrator tuh [RESPOND] buat pemula. yg sering dilupain tuh [SENSORY_A] + [SENSORY_B], kalo [BAD_CASE] kan [NEGATIVE] juga. ini ada beberapa yg [BENEFIT] + [BENEFIT2], certified aman {link} ⚡",
+          "fillers": {
+            "RESPOND": [
+              "yg penting tuh material & suaranya",
+              "food grade silicon emang juara",
+              "yg body-safe + silent tuh dicari",
+              "yg rechargeable"
+            ],
+            "SENSORY_A": [
+              "100% silicone",
+              "food grade",
+              "body-safe",
+              "silent motor",
+              "waterproof"
+            ],
+            "SENSORY_B": [
+              "suara halus",
+              "gak berisik",
+              "gampang di-charge",
+              "awet batre",
+              "magnetic charger"
+            ],
+            "BAD_CASE": [
+              "asal murah",
+              "material random",
+              "yg berisik",
+              "batre abis terus"
+            ],
+            "NEGATIVE": [
+              "iritasi",
+              "gak higienis",
+              "alergi",
+              "gak food grade",
+              "kepala pusing suara"
+            ],
+            "BENEFIT": [
+              "body-safe",
+              "food grade",
+              "silent",
+              "rechargeable"
+            ],
+            "BENEFIT2": [
+              "murah",
+              "size lengkap",
+              "discrete packaging",
+              "1 th warranty"
+            ]
+          },
+          "used_count": 30,
+          "last_used": "2026-07-06T09:17:07.154555+00:00"
+        }
+      ],
+      "auto_mode": true,
+      "daily_limit_per_category": 2,
+      "cooldown_minutes": 120,
+      "max_per_session": 1,
+      "notes": "Vibrator. Excludes 'hp/massage' (different products). Frame sebagai 'personal wellness product'.",
+      "priority": 2
+    },
+    "niple_vibrator": {
+      "category": "wellness",
+      "subcategory": "niple vibrator / stimulator",
+      "links": [
+        {
+          "url": "https://s.blibli.com/GNtk/z3e332sh",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 0,
+            "engagement": 0
+          }
+        },
+        {
+          "url": "https://s.blibli.com/GNtk/9xcy63fs",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 0,
+            "engagement": 0
+          }
+        },
+        {
+          "url": "https://s.blibli.com/GNtk/hmqmbrki",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 0,
+            "engagement": 0
+          }
+        },
+        {
+          "url": "https://s.blibli.com/GNtk/ekzldzps",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 0,
+            "engagement": 0
+          }
+        }
+      ],
+      "triggers": [
+        "niple vibrator",
+        "nipple vibrator",
+        "nipple stimulator",
+        "niple",
+        "puting vibrator",
+        "puting sex toy",
+        "niple suction",
+        "suction vibrator",
+        "vibrator niple",
+        "niple sex toy",
+        "mainan niple",
+        "stimulator niple",
+        "rose vibrator",
+        "rose niple",
+        "niple rose"
+      ],
+      "exclude_triggers": [
+        "niple bayi",
+        "niple botol",
+        "niple dot",
+        "bayi",
+        "botol",
+        "dot",
+        "susu",
+        "asi",
+        "pompa asi",
+        "feeding",
+        "nursing"
+      ],
+      "context_signals": [
+        "rekomendasi",
+        "pemula",
+        "pertama kali",
+        "aman",
+        "food grade",
+        "silent",
+        "murah",
+        "best",
+        "review"
+      ],
+      "style_seeds": [
+        {
+          "id": "niple_pemula",
+          "template": "yoi relate, niple vibrator tuh [RESPOND] buat pemula. yg sering dilupain tuh [SENSORY_A] + [SENSORY_B], kalo [BAD_CASE] kan [NEGATIVE] juga. ini ada beberapa yg [BENEFIT] + [BENEFIT2], certified aman {link} 💮",
+          "fillers": {
+            "RESPOND": [
+              "yg penting tuh suction-nya",
+              "food grade silicon emang juara",
+              "yg adjustable tuh dicari",
+              "yg rechargeable"
+            ],
+            "SENSORY_A": [
+              "100% silicone",
+              "food grade",
+              "adjustable suction",
+              "silent",
+              "waterproof"
+            ],
+            "SENSORY_B": [
+              "suara halus",
+              "gak berisik",
+              "gampang di-charge",
+              "multiple mode",
+              "awet batre"
+            ],
+            "BAD_CASE": [
+              "asal murah",
+              "material random",
+              "suction terlalu kuat",
+              "yg single mode"
+            ],
+            "NEGATIVE": [
+              "iritasi",
+              "gak higienis",
+              "alergi",
+              "gak food grade",
+              "kepala pusing"
+            ],
+            "BENEFIT": [
+              "body-safe",
+              "food grade",
+              "adjustable",
+              "rechargeable"
+            ],
+            "BENEFIT2": [
+              "murah",
+              "discrete packaging",
+              "1 th warranty",
+              "compact"
+            ]
+          },
+          "used_count": 0,
+          "last_used": null
+        }
+      ],
+      "auto_mode": true,
+      "daily_limit_per_category": 2,
+      "cooldown_minutes": 120,
+      "max_per_session": 1,
+      "notes": "Niple vibrator / stimulator. Excludes baby-related niple (botol/dot).",
+      "priority": 3
+    },
+    "sexy_cosplay_lingerie": {
+      "category": "pakaian_dalam",
+      "subcategory": "sexy cosplay 18+ / lingerie",
+      "links": [
+        {
+          "url": "https://s.blibli.com/GNtk/nt3f77mg",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 1,
+            "engagement": 0
+          },
+          "last_used": "2026-07-02T21:26:32.194280+00:00"
+        },
+        {
+          "url": "https://s.blibli.com/GNtk/x0ky151q",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 1,
+            "engagement": 0
+          },
+          "last_used": "2026-06-18T14:09:17.726408+00:00"
+        },
+        {
+          "url": "https://s.blibli.com/GNtk/4ix68n9t",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 1,
+            "engagement": 0
+          },
+          "last_used": "2026-06-18T08:09:14.717677+00:00"
+        },
+        {
+          "url": "https://s.blibli.com/GNtk/kcbikfvt",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 1,
+            "engagement": 0
+          },
+          "last_used": "2026-07-07T08:10:10.002425+00:00"
+        },
+        {
+          "url": "https://s.blibli.com/GNtk/51do7txg",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 1,
+            "engagement": 0
+          },
+          "last_used": "2026-07-07T14:10:07.719536+00:00"
+        },
+        {
+          "url": "https://s.blibli.com/GNtk/ybjaxkth",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 1,
+            "engagement": 0
+          },
+          "last_used": "2026-06-15T17:09:23.149337+00:00"
+        },
+        {
+          "url": "https://s.blibli.com/GNtk/9f1autw5",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 1,
+            "engagement": 0
+          },
+          "last_used": "2026-06-29T15:16:37.955363+00:00"
+        }
+      ],
+      "triggers": [
+        "cosplay sexy",
+        "cosplay 18",
+        "cosplay dewasa",
+        "cosplay lingerie",
+        "sexy costume",
+        "kostum sexy",
+        "kostum dewasa",
+        "lingerie set",
+        "set lingerie",
+        "lingerie成套",
+        "lingerie erotis",
+        "lingerie seksi",
+        "lingerie sexy",
+        "babydoll",
+        "baby doll sexy",
+        "babydoll seksi",
+        "chemise",
+        "teddy lingerie",
+        "teddy seksi",
+        "outfit dalam sexy",
+        "pakaian dalam seksi"
+      ],
+      "exclude_triggers": [
+        "cosplay anime anak",
+        "cosplay anak",
+        "cosplay komik anak",
+        "anime",
+        "convention",
+        "event",
+        "komik",
+        "manga",
+        "japan",
+        "korea",
+        "cosplayer",
+        "expo",
+        "comic con",
+        "mainan sex anak",
+        "mainan anak"
+      ],
+      "context_signals": [
+        "rekomendasi",
+        "seksi",
+        "sexy",
+        "best",
+        "review",
+        "murah",
+        "cute",
+        "best seller",
+        "discreet"
+      ],
+      "style_seeds": [
+        {
+          "id": "cosplay_lingerie",
+          "template": "yoi relate, cosplay/lingerie sexy tuh [RESPOND]. yg sering dilupain tuh [SENSORY_A] + [SENSORY_B], kalo [BAD_CASE] kan [NEGATIVE] juga. ini ada koleksi yg [BENEFIT] + [BENEFIT2], discreet packaging {link} 🌙",
+          "fillers": {
+            "RESPOND": [
+              "yg penting tuh fit + bahannya",
+              "lace halus emang beda",
+              "yg ga ngeboros budget",
+              "yg cute tapi tetep seksi"
+            ],
+            "SENSORY_A": [
+              "lace halus",
+              "saten adem",
+              "mesh breathable",
+              "halus di kulit",
+              "gak ngeboros"
+            ],
+            "SENSORY_B": [
+              "fit di badan",
+              "warna cantik",
+              "gak ngeboros pori",
+              "awet dicuci",
+              "gak gampang melar"
+            ],
+            "BAD_CASE": [
+              "asal murah",
+              "bahan murahan",
+              "size asal",
+              "yg ngeboros pori"
+            ],
+            "NEGATIVE": [
+              "risih",
+              "gak nyaman",
+              "alergi",
+              "gak pede",
+              "malu"
+            ],
+            "BENEFIT": [
+              "discreet packaging",
+              "size lengkap",
+              "lace halus",
+              "breathable"
+            ],
+            "BENEFIT2": [
+              "murah",
+              "ready stock",
+              "banyak motif",
+              "best seller"
+            ]
+          },
+          "used_count": 6,
+          "last_used": "2026-07-07T14:10:07.719492+00:00"
+        }
+      ],
+      "auto_mode": true,
+      "daily_limit_per_category": 2,
+      "cooldown_minutes": 120,
+      "max_per_session": 1,
+      "notes": "Sexy cosplay 18+ / lingerie. Excludes anak-anak cosplay. Discreet packaging highlight. NO explicit content, keep 'aesthetic + comfort' angle.",
+      "priority": 2
+    },
+    "anal_plug": {
+      "category": "wellness",
+      "subcategory": "anal plug",
+      "links": [
+        {
+          "url": "https://s.blibli.com/GNtk/ttcl5xsg",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 0,
+            "engagement": 0
+          }
+        }
+      ],
+      "triggers": [
+        "anal plug",
+        "anal plug pemula",
+        "anal plug silicone",
+        "plug anal",
+        "butt plug",
+        "butt plug pemula",
+        "anal sex toy",
+        "anal toy",
+        "anal play",
+        "anal plug rekomendasi",
+        "anal plug food grade",
+        "anal plug set",
+        "anal beginner set"
+      ],
+      "exclude_triggers": [
+        "novelty",
+        "joke",
+        "prank",
+        "puzzle",
+        "toy anak"
+      ],
+      "context_signals": [
+        "rekomendasi",
+        "pemula",
+        "pertama kali",
+        "aman",
+        "food grade",
+        "silicone",
+        "beginner",
+        "set",
+        "murah",
+        "best"
+      ],
+      "style_seeds": [
+        {
+          "id": "anal_plug_pemula",
+          "template": "yoi relate, anal plug tuh [RESPOND] buat pemula. yg sering dilupain tuh [SENSORY_A] + [SENSORY_B], kalo [BAD_CASE] kan [NEGATIVE] juga. ini ada beberapa yg [BENEFIT] + [BENEFIT2], certified aman {link} 🔒",
+          "fillers": {
+            "RESPOND": [
+              "yg penting tuh material + flared base",
+              "food grade silicon emang juara",
+              "yg beginner-friendly tuh dicari",
+              "yg tapered tuh gampang masuk"
+            ],
+            "SENSORY_A": [
+              "100% silicone",
+              "food grade",
+              "tapered shape",
+              "flared base",
+              "smooth finish"
+            ],
+            "SENSORY_B": [
+              "gak ngeboros",
+              "gak ngeboros pori",
+              "gampang dibersihin",
+              "body-safe"
+            ],
+            "BAD_CASE": [
+              "asal murah",
+              "material random",
+              "yg no flared base",
+              "yg porous"
+            ],
+            "NEGATIVE": [
+              "iritasi",
+              "gak higienis",
+              "alergi",
+              "gak food grade",
+              "bakteri numpuk"
+            ],
+            "BENEFIT": [
+              "body-safe",
+              "food grade",
+              "beginner-friendly",
+              "easy clean"
+            ],
+            "BENEFIT2": [
+              "murah",
+              "discrete packaging",
+              "set bundle",
+              "awet"
+            ]
+          },
+          "used_count": 0,
+          "last_used": null
+        }
+      ],
+      "auto_mode": true,
+      "daily_limit_per_category": 2,
+      "cooldown_minutes": 120,
+      "max_per_session": 1,
+      "notes": "Anal plug. WAJIB frame sebagai 'body-safe intimate product' + beginner-friendly. NO vulgar language.",
+      "priority": 3
+    },
+    "finger_vibrator": {
+      "category": "wellness",
+      "subcategory": "finger vibrator / mini vibrator",
+      "links": [
+        {
+          "url": "https://s.blibli.com/GNtk/elq05orp",
+          "platform": "blibli",
+          "added_at": "2026-06-15",
+          "performance": {
+            "posted": 4,
+            "engagement": 0
+          },
+          "last_used": "2026-07-06T20:10:34.861809+00:00"
+        }
+      ],
+      "triggers": [
+        "finger vibrator",
+        "mini vibrator",
+        "vibrator kecil",
+        "vibrator lucu",
+        "wearable vibrator",
+        "remote vibrator",
+        "egg vibrator",
+        "bullet egg",
+        "finger egg",
+        "vibrator telunjuk",
+        "vibrator mini",
+        "vibrator portable"
+      ],
+      "exclude_triggers": [
+        "massage",
+        "face massager",
+        "face",
+        "body",
+        "pijat",
+        "pijat wajah",
+        "vibrator massage"
+      ],
+      "context_signals": [
+        "rekomendasi",
+        "pemula",
+        "pertama kali",
+        "aman",
+        "food grade",
+        "silent",
+        "murah",
+        "best",
+        "review"
+      ],
+      "style_seeds": [
+        {
+          "id": "finger_vibrator",
+          "template": "yoi relate, finger vibrator tuh [RESPOND] buat pemula. yg sering dilupain tuh [SENSORY_A] + [SENSORY_B], kalo [BAD_CASE] kan [NEGATIVE] juga. ini ada beberapa yg [BENEFIT] + [BENEFIT2], certified aman {link} 💍",
+          "fillers": {
+            "RESPOND": [
+              "yg portable tuh dicari",
+              "food grade silicon emang juara",
+              "yg mini + silent tuh beda",
+              "yg rechargeable"
+            ],
+            "SENSORY_A": [
+              "100% silicone",
+              "food grade",
+              "mini size",
+              "silent",
+              "waterproof"
+            ],
+            "SENSORY_B": [
+              "compact",
+              "gak berisik",
+              "gampang di-charge",
+              "discreet"
+            ],
+            "BAD_CASE": [
+              "asal murah",
+              "material random",
+              "yg berisik",
+              "batre abis terus"
+            ],
+            "NEGATIVE": [
+              "iritasi",
+              "gak higienis",
+              "alergi",
+              "gak food grade"
+            ],
+            "BENEFIT": [
+              "body-safe",
+              "food grade",
+              "silent",
+              "portable"
+            ],
+            "BENEFIT2": [
+              "murah",
+              "discrete",
+              "1 th warranty",
+              "compact"
+            ]
+          },
+          "used_count": 3,
+          "last_used": "2026-07-06T20:10:34.861732+00:00"
+        }
+      ],
+      "auto_mode": true,
+      "daily_limit_per_category": 2,
+      "cooldown_minutes": 120,
+      "max_per_session": 1,
+      "notes": "Finger vibrator / mini egg vibrator. Excludes massage devices.",
+      "priority": 3
+    }
+  },
+  "global_settings": {
+    "auto_mode_enabled": true,
+    "max_auto_posts_per_day": 3,
+    "max_auto_posts_per_cycle": 1,
+    "cooldown_minutes_global": 90,
+    "style_repeat_window_hours": 6,
+    "telegram_notify_on_auto_post": true
+  }
+}
