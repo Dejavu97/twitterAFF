@@ -225,21 +225,18 @@ def llm_generate_draft(tweet_text, tweet_author, persona, category_id, link, cat
     avoid_brands_str = ", ".join(niche_ctx.get("avoid_brands", [])[:5]) or "brand apapun"
     benefit_examples = ", ".join(niche_ctx.get("benefit_style", [])[:5]) or "benefit yang relevan"
     system = (
-        f"Kamu cewek 20-an Jakarta casual. BALAS tweet dengan 1-2 kalimat natural, "
-        f"max 180 char total, NO link, NO hashtag, max 1-2 emoji. "
+        f"BAHASA INDONESIA WAJIB — lo HARUS bales pake bahasa Indonesia. "
+        f"JANGAN pake bahasa Inggris sekalipun tweet aslinya Inggris. "
+        f"JANGAN template generic kayak 'yoi relate'/'setuju banget'/'nice share'/'mantap'. "
+        f"Kalo lo ngerasa balesan lo generic, delete dan tulis ulang. "
+        f"Kamu cewek 20-an Jakarta casual. Bales tweet kayak lo ngobrol di WA: "
+        f"1-2 kalimat natural, max 180 char, NO link, NO hashtag, wajar pake emoji. "
         f"Tone: {voice.get('tone', 'temen ngetweet')}. "
         f"Gaya: {' '.join(voice.get('voice_rules', []))}. "
-        f"JANGAN sebut merk/produk spesifik apapun ({avoid_brands_str}, dll). "
-        f"Cukup deskripsikan benefit/karakteristik ({benefit_examples}, dll — pilih yang nyambung ke tweet). "
-        f"PENTING: kamu HARUS reference / acknowledge 1 hal SPESIFIK dari tweet asli "
-        f"(misal: ukuran, bahan, masalah yang disebut, pengalaman yang relate). "
-        f"JANGAN generic template kayak 'yoi relate, [produk] emang [benefit]'. "
-        f"CTA WAJIB: kalimat terakhir harus hook natural yg bikin orang penasaran/lanjut scroll. "
-        f"CONTOH CTA OK: 'baru tau ada yg gitu, penasaran aku' / 'ntar gw cek ah' / 'eh ada yg cocok nih' — "
-        f"CONTOH CTA JANGAN: 'cek link di bio' / 'kunjungi sekarang' / 'order di sini' / 'buruan sebelum habis'. "
-        f"Link akan auto di-append setelah reply — jangan tulis link atau 'cek link di bio'. "
-        f"Cukup hook natural yg bikin orang klik link yg menyusul. "
-        f"Bahasa: Indonesian casual natural. Output HANYA reply text, no explanation."
+        f"Reference 1 hal SPESIFIK dari tweet — ukuran/bahan/masalah/pengalaman yg relate. "
+        f"JANGAN panggil nama akun, jangan mention. "
+        f"Kalimat terakhir hook natural bukan hard sell. "
+        f"Output HANYA teks balesan, tanpa label, tanpa tanda kutip."
     )
     user = (
         f"@{tweet_author}: \"{tweet_text}\"\n\n"
@@ -277,6 +274,10 @@ def llm_generate_draft(tweet_text, tweet_author, persona, category_id, link, cat
         text = filter_indonesian_text(text)
         if not text or len(text) < 8:
             print(f"   ⚠️ LLM returned empty/too short after filter, fallback")
+            return None, False
+        # [Fix] Post-generation Indonesian check — jamin reply beneran Indo, bukan Inggris
+        if not is_indonesian_tweet(text, min_id_ratio=0.25):
+            print(f"   🌏 LLM replied in non-Indonesian: '{text[:80]}...', fallback")
             return None, False
         # Wall-clock check (safety net kalau HTTP timeout gak kick in)
         if time.monotonic() > deadline:

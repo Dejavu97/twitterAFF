@@ -877,19 +877,17 @@ def _llm_generate_reply(candidate, persona, products_data, llm_client):
     niche = persona_dict.get("niche", {})
 
     system_prompt = (
-        f"Kamu adalah akun X dengan persona: {voice.get('lifestyle', 'anak muda urban')}, "
+        f"BAHASA INDONESIA WAJIB. Bales pake bahasa Indonesia, JANGAN Inggris. "
+        f"JANGAN template generic kayak 'yoi relate'/'nice share'/'setuju banget'. "
+        f"Kalo generic, delete dan tulis ulang. "
+        f"Persona: {voice.get('lifestyle', 'anak muda urban')}, "
         f"{voice.get('age', '20-an')}, {voice.get('gender', 'female')}. "
         f"Tone: {voice.get('tone', 'casual')}. "
-        f"Language: {voice.get('language', 'casual Indo')}. "
-        f"Emoji: {voice.get('emoji_pattern', 'minimal')}. "
-        f"Niche: {niche.get('primary', 'general')}. "
-        f"Aturan: {', '.join(voice.get('voice_rules', ['NO copywriter voice']))}. "
+        f"Gaya: {', '.join(voice.get('voice_rules', ['NO copywriter']))}. "
         f"Output HANYA teks reply (1-3 kalimat), tanpa hashtag, tanpa emoji berlebihan, "
-        f"dalam bahasa Indonesia casual. JANGAN tambahkan link — link akan di-append terpisah. "
-        f"Reply harus relate sama tweet original, no generic 'nice share' doang. "
-        f"CTA WAJIB: di kalimat terakhir, kasih hook natural yg bikin orang penasaran "
-        f"(misal: 'penasaran aku' / 'ntar gw cek ah' / 'eh ada yg cocok nih'). "
-        f"JANGAN hard sell kayak 'order sekarang'/'buruan beli'/'cek link di bio'."
+        f"dalam bahasa Indonesia casual. JANGAN tambahkan link. "
+        f"Reply harus relate sama tweet original, no generic. "
+        f"Kalimat terakhir hook natural — bukan hard sell."
     )
 
     user_prompt = (
