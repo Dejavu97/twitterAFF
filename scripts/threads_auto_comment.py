@@ -131,11 +131,66 @@ def load_random_link() -> str:
         log(f"⚠️ load_random_link failed: {e}", "WARN")
         return ""
 
-# ─── LLM COMMENT GENERATION ───
-def generate_comment(post_text: str, persona: dict) -> str:
+# ─── LOAD KNOWLEDGE BASE ───
+def load_knowledge_links():
+    """Load all product links from link_knowledge.json with their triggers."""
+    try:
+        kb = load_json(LINK_KB, {})
+        cats = kb.get("categories", [])
+        # Format: list of {category, triggers, links[]}
+        result = []
+        for cat in cats:
+            if isinstance(cat, dict):
+                links = []
+                for l in cat.get("links", []):
+                    if isinstance(l, dict) and l.get("url"):
+                        links.append({"url": l["url"], "label": l.get("label", "")})
+                if links:
+                    result.append({
+                        "id": cat.get("id", ""),
+                        "name": cat.get("name", ""),
+                        "triggers": cat.get("triggers", []),
+                        "links": links,
+                    })
+        return result
+    except Exception as e:
+        log(f"⚠️ load_knowledge_links failed: {e}", "WARN")
+        return []
+
+def find_relevant_category(post_text: str, categories: list) -> dict:
+    """Find best matching category based on word match of triggers to post text."""
+    text_lower = post_text.lower()
+    best = None
+    best_score = 0
+    for cat in categories:
+        score = 0
+        for trigger in cat.get("triggers", []):
+            if trigger.lower() in text_lower:
+                score += 1
+        if score > best_score:
+            best_score = score
+            best = cat
+    return best if best_score > 0 else None
+
+def pick_random_link(categories: list, exclude_urls: set = None) -> dict:
+    """Pick a random link from all categories combined."""
+    all_links = []
+    for cat in categories:
+        for link in cat.get("links", []):
+            if exclude_urls and link.get("url") in exclude_urls:
+                continue
+            all_links.append(link)
+    if not all_links:
+        return None
+    import random
+    return random.choice(all_links)
+
+# ─── LLM COMMENT GENERATION (with product link) ───
+def generate_comment(post_text: str, persona: dict, categories: list = None, no_link: bool = False) -> str:
     """
-    Generate a contextual comment via DeepSeek that sounds like a real person
-    replying naturally to the post.
+    Generate a contextual comment via DeepSeek.
+    If categories available, tries to find relevant product and include link naturally.
+    Falls back to random link if no relevant category.
     """
     if not LLM_API_KEY:
         log("❌ No LLM API key configured", "ERROR")
@@ -145,22 +200,58 @@ def generate_comment(post_text: str, persona: dict) -> str:
     tone = persona.get("tone", "casual")
     lang = persona.get("language", "Indonesian casual")
 
+    # Try to find relevant product
+    chosen_link = None
+    chosen_category = None
+    should_include_link = False
+
+    if categories and not no_link:
+        # Try relevance match first
+        relevant_cat = find_relevant_category(post_text, categories)
+        if relevant_cat:
+            chosen_category = relevant_cat
+            chosen_link = pick_random_link(categories, set()) if relevant_cat.get("links") else None
+            if chosen_link:
+                should_include_link = True
+                log(f"🎯 Relevant category: {relevant_cat['name']} → link: {chosen_link.get('label', chosen_link['url'][:40])}")
+        else:
+            # Fallback: random link from anywhere
+            random_link = pick_random_link(categories)
+            if random_link:
+                chosen_link = random_link
+                should_include_link = True
+                log(f"🔀 Random link fallback: {random_link.get('label', random_link['url'][:40])}")
+
+    # Build prompt
+    link_instruction = ""
+    if should_include_link and chosen_link:
+        link_url = chosen_link["url"]
+        link_label = chosen_link.get("label", "produk ini")
+        link_instruction = f"""
+LINK INSTRUCTION:
+- Include this link NATURALLY at the end: {link_url}
+- Example: "gue beli {link_label} di shopee, linknya di sini {link_url}"
+- Example: "kalo lo cari yang bagus, gue saranin {link_label} https://s.shopee.co.id/xxx"
+- DO NOT make the whole comment about the product
+- The link should feel like an afterthought, not a CTA
+- Keep the reply conversational first, link at the end"""
+
     prompt = f"""You are a {persona.get('age', '20-an')} {persona.get('gender', 'female')} from Jakarta.
 Your tone: {tone}
 Your language style: {lang}
 Your voice rules:
 {voice_rules}
 
-The user is REPLYING to a Threads post. Read the post below and write a NATURAL, CONTEXTUAL reply.
+The user is REPLYING to a Threads post. Read the post below and write a NATURAL, CONTEXTUAL reply.{link_instruction}
 
 RULES:
 - Reply must be RELEVANT to the post content — don't be generic
 - Sound like a real person responding, NOT a bot or copywriter
-- Keep it SHORT (1-3 sentences, max 280 chars)
+- Keep it SHORT (1-3 sentences, max 280 chars){' plus link' if should_include_link else ''}
 - Use specific details from the post to show you actually read it
 - Can relate with personal experience
 - Can agree/disagree/tell a similar story
-- NO hard sell, NO CTA — be natural
+- NO hard sell, NO CTA — be natural{'; the product mention should feel like a casual recommendation, not an ad' if should_include_link else ''}
 - End naturally — like how you'd reply in a group chat
 
 POST TO REPLY TO:
@@ -182,7 +273,7 @@ Write ONLY the reply text (no quotes, no labels, no explanation)."""
                     "messages": [
                         {"role": "user", "content": prompt}
                     ],
-                    "max_tokens": 200,
+                    "max_tokens": 300 if should_include_link else 200,
                     "temperature": 0.8,
                 },
             )
@@ -191,7 +282,19 @@ Write ONLY the reply text (no quotes, no labels, no explanation)."""
             comment = data["choices"][0]["message"]["content"].strip()
             # Clean up any quotes
             comment = comment.strip("\"'「」")
-            log(f"🧠 LLM generated: {comment[:100]}...")
+            # Verify link is included if it was requested
+            if should_include_link and chosen_link:
+                if chosen_link["url"] not in comment:
+                    log(f"⚠️ LLM dropped the link, appending with context")
+                    # Don't just tack on bare URL — wrap naturally
+                    link_label = chosen_link.get("label", "cek aja")
+                    wrapped = comment.rstrip(" .,;!?\n")
+                    if len(wrapped) > 10:
+                        comment = wrapped + f". Oh iya, yang ini juga lumayan {chosen_link['url']}"
+                    else:
+                        # LLM refused entirely — generate minimal fallback
+                        comment = f"Bener juga sih. Oh iya, buat yang nyari {link_label} bisa cek {chosen_link['url']}"
+            log(f"🧠 LLM generated: {comment[:150]}...")
             return comment
     except Exception as e:
         log(f"❌ LLM generation failed: {e}", "ERROR")
@@ -616,6 +719,10 @@ async def main():
     persona = load_persona()
     log(f"   Persona: {persona.get('age', 'N/A')} {persona.get('gender', 'N/A')}")
     
+    # Load knowledge base for product links
+    categories = load_knowledge_links()
+    log(f"   Link knowledge: {len(categories)} categories loaded")
+    
     # Load already commented posts to avoid duplicates
     commented = load_json(COMMENTED_LOG, [])
     commented_urls = set(c.get("url", "") for c in commented) if isinstance(commented, list) else set()
@@ -717,7 +824,7 @@ async def main():
                     log(f"   URL: {post_url}")
                 
                 if args.dry_run:
-                    comment = generate_comment(post_text, persona)
+                    comment = generate_comment(post_text, persona, categories=categories)
                     log(f"   [DRY-RUN] Would comment: {comment[:100]}...")
                     commented_count += 1
                     continue
@@ -748,7 +855,7 @@ async def main():
                     continue
                 
                 # Generate comment
-                comment = generate_comment(post_text, persona)
+                comment = generate_comment(post_text, persona, categories=categories)
                 if not comment:
                     log(f"   ⏭️ Could not generate comment, skipping")
                     continue
