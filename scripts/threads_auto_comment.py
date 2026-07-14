@@ -50,6 +50,7 @@ COOKIES_FILE = ACCOUNT_DIR / "cookies.json"
 IG_COOKIES_FILE = ACCOUNT_DIR / "instagram_cookies.json"
 LOG_DIR = BASE_DIR / "logs"
 COMMENTED_LOG = ACCOUNT_DIR / "commented.json"  # track which posts we've commented on
+LINK_KB = ACCOUNT_DIR / "link_knowledge.json"  # links to inject in comments
 
 LOG_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -103,6 +104,33 @@ def load_persona():
         }
     return persona
 
+# ─── LINK INJECTION ───
+def load_random_link() -> str:
+    """Pick a random link from link_knowledge.json (all categories combined).
+    Returns empty string if no links available."""
+    try:
+        kb = load_json(LINK_KB, {})
+        cats = kb.get("categories", {})
+        all_urls = []
+        for cat_cfg in cats.values():
+            blocked = set()
+            for b in kb.get("blocked_urls", []):
+                if isinstance(b, dict):
+                    blocked.add(b.get("url", ""))
+                else:
+                    blocked.add(b)
+            for link in cat_cfg.get("links", []):
+                url = link.get("url", "") if isinstance(link, dict) else link
+                if url and url not in blocked:
+                    all_urls.append(url)
+        if not all_urls:
+            return ""
+        import random
+        return random.choice(all_urls)
+    except Exception as e:
+        log(f"⚠️ load_random_link failed: {e}", "WARN")
+        return ""
+
 # ─── LLM COMMENT GENERATION ───
 def generate_comment(post_text: str, persona: dict) -> str:
     """
@@ -132,7 +160,7 @@ RULES:
 - Use specific details from the post to show you actually read it
 - Can relate with personal experience
 - Can agree/disagree/tell a similar story
-- NO promotion, NO links, NO CTA
+- NO hard sell, NO CTA — be natural
 - End naturally — like how you'd reply in a group chat
 
 POST TO REPLY TO:
