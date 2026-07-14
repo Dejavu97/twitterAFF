@@ -83,19 +83,19 @@ def load_drafts(paths):
 
 
 def _get_llm_client():
-    """Initialize OpenAI-compatible client (OpenRouter) if key is set.
+    """Initialize OpenAI-compatible client (LLM_API_KEY from .env).
 
     Returns None if key missing — callers should fallback to template.
+    Uses LLM_API_KEY + LLM_BASE_URL (same vars as auto_approve_pending.py).
     """
-    api_key = os.getenv("OPENROUTER_API_KEY", "").strip()
-    if not api_key or api_key.startswith("OPENRO") and "..." in api_key:
-        # Treat placeholder keys as missing
+    api_key = os.getenv("LLM_API_KEY", "").strip()
+    if not api_key or api_key.startswith("***"):
         return None
     try:
         from openai import OpenAI
         return OpenAI(
             api_key=api_key,
-            base_url=os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1"),
+            base_url=os.getenv("LLM_BASE_URL", "https://openrouter.ai/api/v1").strip(),
         )
     except Exception as e:
         print(f"   ⚠️ LLM client init error: {e}", "WARN")
@@ -515,18 +515,39 @@ async def run_bot(account_name, dry_run=False, from_cache=None):
                 auto_skipped.append((c["tweet_id"], f"daily_limit_{category_id}"))
                 continue
 
-            # Build reply text from style seed
-            reply_text = fill_template(style_seed["template"], style_seed["fillers"], link=link)
+            # Build reply text — LLM first, fallback to template
+            llm_client = _get_llm_client()
+            used_llm = False
+            if llm_client:
+                try:
+                    candidate_data = {"text": c.get("text", ""), "username": c.get("username", "?")}
+                    llm_text = _llm_generate_reply(candidate_data, persona, products_data, llm_client)
+                    if llm_text and len(llm_text) > 8:
+                        # LLM reply doesn't include link, append separately
+                        reply_text = f"{llm_text}\n\n{link}" if link else llm_text
+                        used_llm = True
+                        print(f"      Generated via LLM")
+                    else:
+                        raise ValueError("LLM returned empty/too short")
+                except Exception as e:
+                    print(f"      ⚠️ LLM error: {str(e)[:80]}, fallback to template")
+            if not used_llm:
+                reply_text = fill_template(style_seed["template"], style_seed["fillers"], link=link)
+                print(f"      Style: {style_seed['id']} (used {style_seed['used_count']}x)")
             if len(reply_text) > 280:
                 reply_text = reply_text[:277] + "..."
 
             print(f"   ⚡ AUTO-MATCH: {c['username']} → {category_id}")
-            print(f"      Style: {style_seed['id']} (used {style_seed['used_count']}x)")
+            if used_llm:
+                print(f"      Generated via LLM")
+            else:
+                print(f"      Style: {style_seed['id']} (used {style_seed['used_count']}x)")
             print(f"      Reply: {reply_text[:100]}...")
 
-            # Update style seed usage
-            style_seed["used_count"] = style_seed.get("used_count", 0) + 1
-            style_seed["last_used"] = datetime.now(timezone.utc).isoformat()
+            # Update style seed usage (only for template)
+            if not used_llm:
+                style_seed["used_count"] = style_seed.get("used_count", 0) + 1
+                style_seed["last_used"] = datetime.now(timezone.utc).isoformat()
             # Update link performance counter (track link rotation)
             for _l in cat_cfg.get("links", []):
                 if _l.get("url") == link:
@@ -896,19 +917,30 @@ def _llm_generate_reply(candidate, persona, products_data, llm_client):
         f"Tulis reply yang natural, max 200 karakter, no link."
     )
 
-    response = llm_client.chat.completions.create(
-        model=os.getenv("MODEL", "xiaomi/mimo-v2.5"),
-        messages=[
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt},
-        ],
-        max_tokens=120,
-        temperature=0.85,
-    )
-    text = (response.choices[0].message.content or "").strip()
-    # Remove surrounding quotes if LLM added them
-    text = text.strip('"').strip("'")
-    return text
+    model = os.getenv("LLM_MODEL", os.getenv("MODEL", "deepseek/deepseek-chat"))
+    try:
+        response = llm_client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            max_tokens=800,  # reasoning model needs extra tokens for CoT
+            temperature=0.85,
+        )
+        text = (response.choices[0].message.content or "").strip()
+        # Reasoning model (deepseek-v4-flash) leaks CoT in content or uses
+        # reasoning_content — strip <think> blocks and fallback to content
+        import re as _re
+        if "</think>" in text:
+            text = text.split("</think>", 1)[-1].strip()
+        text = _re.sub(r"<think>.*?</think>", "", text, flags=_re.DOTALL).strip()
+        # Remove surrounding quotes if LLM added them
+        text = text.strip('"').strip("'")
+        return text
+    except Exception as e:
+        print(f"   ⚠️ LLM generate error: {e}", "WARN")
+        return ""
 
 
 def send_telegram_summary(persona, new_pending_ids, overrides):
