@@ -906,7 +906,7 @@ def _llm_generate_reply(candidate, persona, products_data, llm_client):
         f"Tone: {voice.get('tone', 'casual')}. "
         f"Gaya: {', '.join(voice.get('voice_rules', ['NO copywriter']))}. "
         f"Output HANYA teks reply (1-3 kalimat), tanpa hashtag, tanpa emoji berlebihan, "
-        f"dalam bahasa Indonesia casual. JANGAN tambahkan link. "
+        f"dalam bahasa Indonesia casual. Boleh selipin link produk kalo natural dan relevan. "
         f"Reply harus relate sama tweet original, no generic. "
         f"Kalimat terakhir hook natural — bukan hard sell."
     )
@@ -914,7 +914,7 @@ def _llm_generate_reply(candidate, persona, products_data, llm_client):
     user_prompt = (
         f"Tweet original (from @{candidate.get('username', '?')}):\n"
         f"\"{candidate.get('text', '')}\"\n\n"
-        f"Tulis reply yang natural, max 200 karakter, no link."
+        f"Tulis reply yang natural, max 200 karakter."
     )
 
     model = os.getenv("LLM_MODEL", os.getenv("MODEL", "deepseek/deepseek-chat"))
