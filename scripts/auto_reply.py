@@ -906,10 +906,33 @@ def _llm_generate_reply(candidate, persona, products_data, llm_client):
         f"Tone: {voice.get('tone', 'casual')}. "
         f"Gaya: {', '.join(voice.get('voice_rules', ['NO copywriter']))}. "
         f"Output HANYA teks reply (1-3 kalimat), tanpa hashtag, tanpa emoji berlebihan, "
-        f"dalam bahasa Indonesia casual. Boleh selipin link produk kalo natural dan relevan. "
+        f"dalam bahasa Indonesia casual. "
         f"Reply harus relate sama tweet original, no generic. "
-        f"Kalimat terakhir hook natural — bukan hard sell."
     )
+
+    # Add product context if available (used by AFFILIATE accounts)
+    products_list = []
+    if isinstance(products_data, list):
+        for p in products_data:
+            if isinstance(p, dict):
+                name = p.get("name") or p.get("brand") or p.get("product_name") or ""
+                if name and name not in [x.split(":")[0].strip() for x in products_list]:
+                    products_list.append(f"{name}: {p.get('description', '')[:80]}")
+    elif isinstance(products_data, dict):
+        for key, val in products_data.items():
+            if isinstance(val, dict):
+                name = val.get("name") or val.get("brand") or key
+                products_list.append(f"{name}: {val.get('description', '')[:80]}")
+    if products_list:
+        system_prompt += (
+            f"\n\nProduk yang relevan untuk diselipin kalo natural:\n"
+            + "\n".join(f"- {p}" for p in products_list[:5])
+        )
+        system_prompt += (
+            "\n\nJANGAN paksa masukin produk. PENTING: produk cuma diselipin KALO "
+            "tweet original cocok. Kalo gak cocok, reply natural aja tanpa produk. "
+            "Link gak perlu disebut explicit — cukup hint natural kayak 'ada rekomendasi yang worth dicoba'."
+        )
 
     user_prompt = (
         f"Tweet original (from @{candidate.get('username', '?')}):\n"
