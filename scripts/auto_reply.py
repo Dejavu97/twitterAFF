@@ -577,6 +577,10 @@ async def run_bot(account_name, dry_run=False, from_cache=None):
                 cycle_count += 1
             else:
                 auto_skipped.append((c["tweet_id"], "post_failed"))
+            # Intra-cycle cooldown: 30s spacing antar auto-post
+            if success and cycle_count > 0:
+                import time as _t
+                _t.sleep(30)
 
         # Save updated knowledge (with style seed counters)
         if auto_posted or auto_skipped:
@@ -599,7 +603,7 @@ async def run_bot(account_name, dry_run=False, from_cache=None):
     new_pending = []
     llm_client = _get_llm_client()
     drafts_data = load_drafts(paths)
-    for c in unique_candidates[:3]:  # max 3 per cycle
+    for c in unique_candidates[:5]:  # max 5 per cycle
         if c["tweet_id"] in auto_posted_ids:
             continue  # already auto-posted
         draft = generate_draft_reply(c, persona, products_data, drafts_data=drafts_data, llm_client=llm_client)

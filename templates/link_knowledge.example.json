@@ -2485,10 +2485,11 @@
   },
   "global_settings": {
     "auto_mode_enabled": true,
-    "max_auto_posts_per_day": 3,
-    "max_auto_posts_per_cycle": 1,
+    "max_auto_posts_per_day": 12,
+    "max_auto_posts_per_cycle": 3,
     "cooldown_minutes_global": 90,
     "style_repeat_window_hours": 6,
-    "telegram_notify_on_auto_post": true
+    "telegram_notify_on_auto_post": true,
+    "cooldown_minutes": 30
   }
 }
