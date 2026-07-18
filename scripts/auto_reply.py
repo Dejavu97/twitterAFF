@@ -964,6 +964,53 @@ def _llm_generate_reply(candidate, persona, products_data, llm_client):
         text = _re.sub(r"<think>.*?</think>", "", text, flags=_re.DOTALL).strip()
         # Remove surrounding quotes if LLM added them
         text = text.strip('"').strip("'")
+        # Post-generation Indonesian validation
+        id_stopwords = {
+            'yang','dan','di','ke','dari','untuk','dengan','pada','ini','itu',
+            'aku','kamu','gue','lo','gw','lu','gua','elo',
+            'nggak','enggak','gak','ga','ngga','ndak',
+            'udah','sudah','belum','lagi','juga','bisa','ada',
+            'nih','deh','sih','dong','doang','aja','kali','ya','iya',
+            'kok','kan','loh','lho','yah','yoi',
+            'banget','bangett','bgt','pake','pakai',
+            'si','tu','tau','tahu','gitu','gini','begitu','begini',
+            'kalo','kalau','soal','tentang','sama','bikin','buat',
+            'tp','tapi','tpi','cuma','cm','cuman','cmn',
+            'liat','lihat','lht','lwt','lewat','malah',
+            'emang','memang','emg','mg','skrg','sekarang','skrng',
+            'abis','habis',
+            'asli','anjir','anjrit','anjing','anjay',
+            'sumpah','serius','jujur','bener','benaran',
+            'enak','enakk','nikmat','mantap','mantul',
+            'kepo','baper','gaje','gabut','mager','galau',
+            'receh','pede','percaya',
+        }
+        words = _re.findall(r'\w+', text.lower())
+        if words:
+            match_count = sum(1 for w in words if w in id_stopwords)
+            if match_count / len(words) < 0.2:
+                print(f"   ⚠️ Indonesian ratio too low ({match_count}/{len(words)}={match_count/len(words):.0%}), regenerating...", "WARN")
+                # Retry once — simpler prompt
+                retry_prompt = (
+                    f"BALES PAKE BAHASA INDONESIA. Ini penting: tulis ulang reply "
+                    f"dalam bahasa Indonesia gaul anak Jakarta.\n\n"
+                    f"Tweet: \"{candidate.get('text', '')}\"\n\n"
+                    f"Tulis reply bahasa Indonesia (1-2 kalimat, maks 200 chars), NO English."
+                )
+                try:
+                    retry = llm_client.chat.completions.create(
+                        model=model,
+                        messages=[{"role": "user", "content": retry_prompt}],
+                        max_tokens=300,
+                        temperature=0.7,
+                    )
+                    text = (retry.choices[0].message.content or "").strip()
+                    if "</think>" in text:
+                        text = text.split("</think>", 1)[-1].strip()
+                    text = _re.sub(r"<think>.*?</think>", "", text, flags=_re.DOTALL).strip()
+                    text = text.strip('"').strip("'")
+                except Exception:
+                    pass
         return text
     except Exception as e:
         print(f"   ⚠️ LLM generate error: {e}", "WARN")
